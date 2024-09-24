@@ -1,0 +1,79 @@
+Recommended Data Structures for a Messaging App
+A messaging app will utilize various data structures depending on the needs of the attributes within the app. The creator must take into account the size of the data, how the data is handled (insertion, deletion, editing, searching), and the time and space complexity.
+
+1. Linear Data Structures - Organized Sequentially
+Array
+Elements are stored sequentially based on their index/key.
+
+Advantages:
+
+Quick access with indexing: O(1).
+Items can be accessed randomly.
+Disadvantages:
+
+Not suitable for dynamic insertion/deletion; elements must shift, resulting in O(n) complexity.
+Recommendation: Arrays should not be used for messaging storage due to poor performance with additions and deletions.
+
+Linked List
+Data is stored in nodes that are sequentially linked; each node points to the next.
+
+Advantages:
+
+Dynamic addition and removal of elements: O(1).
+Disadvantages:
+
+More memory required due to pointers.
+Slower access time compared to arrays.
+Recommendation: Linked lists are useful for messaging storage due to good performance with additions and deletions. However, performance may suffer due to increased storage requirements, especially as more data accumulates.
+
+2. Non-Linear Data Structures - Organized Hierarchically
+Trees
+Nodes are connected by edges, forming a hierarchical structure.
+
+Advantages:
+
+Data is ordered hierarchically, making it suitable for searching, adding, and deleting: O(log n).
+Disadvantages:
+
+More complicated to maintain and requires balancing.
+Requires additional memory for pointers.
+Can take more time for operations than linked lists.
+Recommendation: Trees may be useful if a large amount of data accumulates. However, due to their complexity, they may not be recommended over linked lists.
+
+3. Hash Data Structure - Maps Keys to Values
+Advantages:
+
+Excellent for searching with keywords stored as keys: O(1).
+Disadvantages:
+
+Collisions can occur when multiple keys hash to the same index, making it difficult to maintain order.
+Recommendation: Hash tables should be utilized for searching based on identifiers such as names, message contents, timestamps, etc.
+
+Final Recommendation
+The messaging app should use a combination of data structures, including Linked Lists and Hash Tables. This combination will provide the ability to efficiently and dynamically add and delete data while enabling fast search access based on keywords.
+
+
+
+Analyzing Big O Complexity: 
+
+
+def simple_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+
+
+Task 1: 
+The function receives an array that is ordered. The outer loop iterates through the array making sure that each number is covered. The inner loop iterates through the remaining values that have not been compared to the original index in the array. If the index value is greater than the compared value, then it is moved on place ahead until it reached the point that it is not less than the compared value. 
+
+
+Task 2: The outer loop will run N times where N is the number components in the array. The inner loop will run O(n) times if there are no swaps and O(n^2) if there are swaps. Since the Big O notation is exponential, more values can significantly increase runtime. 
+
+
+Task 3: One way you could potentially improve the algorithm is to end it if the values are already in order, so that it does not have to iterate through unnecessarily.  
+
+
+
